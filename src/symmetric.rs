@@ -1,5 +1,5 @@
 use crate::fips202::*;
-use crate::params::{CRHBYTES, SEEDBYTES};
+use crate::params::{CRHBYTES};
 
 #[cfg(feature = "aes")]
 use crate::aes256ctr::*;
@@ -87,7 +87,7 @@ pub fn dilithium_shake128_stream_init(
 ) {
   let t = [nonce as u8, (nonce >> 8) as u8];
   state.init();
-  shake128_absorb(state, seed, SEEDBYTES);
+  shake128_absorb(state, seed, crate::params::SEEDBYTES);
   shake128_absorb(state, &t, 2);
   shake128_finalize(state);
 }

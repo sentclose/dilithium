@@ -1,5 +1,5 @@
 [package]
-name = "pqc_dilithium"
+name = "pqc_dilithium_edit"
 version = "0.2.0"
 authors = ["Mitchell Berry <foss@mitchellberry.com>"]
 description = "A post-quantum cryptographic signature scheme based on the hardness of lattice problems over module lattices"
@@ -12,19 +12,10 @@ exclude = ["tests/KAT"]
 rust-version = "1.50"
 
 [dependencies]
-rand_core = { version = "0.6.4",  default-features = false }
-getrandom = {version = "0.2.10", features = ["js"], optional = true }
-wasm-bindgen = { version = "0.2.87", optional = true }
-
-[dependencies.rand]
-version = "0.8.5"
-features = ["getrandom"]
+rand_core = { version = "0.6.4",  default-features = false,  features = ["getrandom"] }
 
 [dev-dependencies]
 pqc_core = {version = "0.3.0", features = ["load"]}
-
-[target.'cfg(bench)'.dev-dependencies.criterion]
-criterion = "0.4.0"
 
 [[bench]]
 name = "api"
@@ -45,9 +36,3 @@ aes = []
 # where one may want to avoid determinism is when the signer does not wish to reveal the
 # message that is being signed.
 random_signing = []
-
-# For compiling to wasm targets 
-wasm = ["wasm-bindgen", "getrandom/js"]
-
-[lib]
-crate-type = ["cdylib", "rlib"]

@@ -1,3 +1,7 @@
+#![no_std]
+
+extern crate alloc;
+
 #[cfg(feature = "aes")]
 mod aes256ctr;
 mod api;
@@ -15,9 +19,6 @@ mod symmetric;
 pub use params::*;
 
 pub use api::*;
-
-#[cfg(feature = "wasm")]
-mod wasm;
 
 #[cfg(dilithium_kat)]
 pub use sign::{
