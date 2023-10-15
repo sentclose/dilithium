@@ -2,7 +2,7 @@
 name = "pqc_dilithium_edit"
 version = "0.2.0"
 authors = ["Mitchell Berry <foss@mitchellberry.com>"]
-description = "A post-quantum cryptographic signature scheme based on the hardness of lattice problems over module lattices"
+description = "Modified version. A post-quantum cryptographic signature scheme based on the hardness of lattice problems over module lattices"
 edition = "2018"
 categories = ["cryptography"]
 keywords = ["signature", "post-quantum", "signing"]
